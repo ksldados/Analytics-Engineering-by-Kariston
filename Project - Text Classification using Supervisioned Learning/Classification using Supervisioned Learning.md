@@ -4,3 +4,6 @@ Once these data have been extracted, we will create a pipeline for pre-processin
 
 After that, we will analyze the performance of each one of them by the Confusion Matrix and we will select the best model for these types of classification.
 
+## Starting the Project
+
+Firstly, we've to create a free API connection to the site https://reddit.com in order to load the data used in this project. Basically, it will be a Web Scraping.
