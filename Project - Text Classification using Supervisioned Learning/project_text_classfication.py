@@ -26,12 +26,12 @@ assuntos = ['datascience', 'machinelearning', 'physics', 'astrology', 'conspirac
 # Função para carregar os dados
 def carrega_dados():
     
-    # Primeiro extraímos os dados do Reddit acessando via API
-    api_reddit = praw.Reddit(client_id = "0Aok4WMh2ISGh6Pon6Z93w", 
-    	                     client_secret = "Xe5DABV8GvSHTkO6ldwmYpIn6SZ4NQ",
-                             password = "",
-                             user_agent = "kakariston",
-                             username = "dsa-app")
+    # Primeiro extraímos os dados do Reddit acessando via API (coloque os seus dados de API abaixo)
+    api_reddit = praw.Reddit(client_id = "xxxxxx", 
+    	                     client_secret = "xxxxx",
+                             password = "xxxx",
+                             user_agent = "xxxxxx",
+                             username = "xxxxxx")
 
     # Contamos o número de caracteres usando expressões regulares
     char_count = lambda post: len(re.sub('\W|\d', '', post.selftext))
