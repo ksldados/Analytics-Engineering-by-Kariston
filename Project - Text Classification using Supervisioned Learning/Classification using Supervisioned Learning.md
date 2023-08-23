@@ -4,6 +4,49 @@ Once these data have been extracted, we will create a pipeline for pre-processin
 
 After that, we will analyze the performance of each one of them by the Confusion Matrix and we will select the best model for these types of classification.
 
-## Starting the Project
 
-Firstly, we've to create a free API connection to the site https://reddit.com in order to load the data used in this project. Basically, it will be a Web Scraping.
+# Creating the API
+
+Firstly, we've to create a free Reddit account at https://reddit.com in order to create the API used in this project. Basically, we gonna do a Web Scraping.
+
+Then, go to the website https://reddit.com/wiki/api and read the terms. After this, visit https://www.reddit.com/prefs/apps and create your own API by clicking on the button "are you a developer? create an app..." down bellow.
+
+A screen similar to this should appear and you must follow the following steps to complete:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/38df59fa-7fbd-4dd4-a50f-317e2722b4cd)
+
+1 - Click on "Script". 
+
+2 - Create your API name. Here you can put any name that you want, without spaces. 
+
+3 - Create a generic 'https'site. Even if it doesn't exist, no problem!
+
+4 - Click on "create-app".
+
+Done! Your API has been created and a similar window should appear like this:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/31eb3a29-b01c-44c0-9fd2-71a4900b321c)
+
+1 - It's your 'personal user script'. We'll use this to connect to the API.
+
+2 - It's your 'secret' token. We'll also use this to connect to the API.
+
+In general, to connect to the Reddit API, we'll use a specific Python Library called "praw". Read more here https://praw.readthedocs.io/en/stable/code_overview/reddit_instance.html.
+
+# Starting coding - Text Classification Using Supervisioned Learning Models
+
+In this project, we gonna use some specifics packages that you can get them by installing the Python Interpreter using 'Anaconda3' installer.
+
+Here's the packages:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/7d476025-2e92-4ea6-b515-0020bcd43bbf)
+
+To provide the data, a list of themes must be created to use for searches on Reddit. These will be the classes that we will use as target variable. 
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/9f73f5a2-3666-401e-8fde-2146b07e6c69)
+
+After this, we must create a load data function by connecting to the Reddit API and load the Data by using the topics themes that we defined before. 
+Firstly we extract data from Reddit accessing via API (all red boxes in the figure bellow should be complete using your API and Reddit account informations) and then, we count the number of characters using regular expressions. Define the condition to filter the posts (we will only return posts with 100 or more characters). Then, lists for results.
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/bd2f71fe-b7b8-4232-9767-2c6f3a6efb38)
+
