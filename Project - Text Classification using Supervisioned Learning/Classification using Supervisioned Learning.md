@@ -79,10 +79,30 @@ Creating the models we can obtain:
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/a249fede-fed8-4164-b90f-4d848e52ee95)
 
 
-Running the Pipeline for all Models:
+Running the Pipeline for all Models and visualizing the results, we have
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/1e6e3a33-e467-4834-b0c6-461a8ce9c4fb)
 
+
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/8fe32e4b-6c6c-4273-9df4-9c003d5c338b)
+
+
+
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/c495cd0a-d077-45c6-b5f1-7ecdf9642df0)
+
+
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/9f07845d-ef08-41e6-aaa6-bd295712e330)
+
+
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/69094432-e5c1-4de7-8b51-bc245fdb175f)
+
+# Conclusion
+
+We can conclude that the Logistic Regression model showed better accuracy results when compared to the KNN and RandomForest models.
 
 
 
