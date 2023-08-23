@@ -74,9 +74,14 @@ The following steps will be done now.
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/38456476-d6d1-4775-88fc-526b5aa66437)
 
+
+# Training and Evaluating the Models
+
+
 Creating the models we can obtain:
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/a249fede-fed8-4164-b90f-4d848e52ee95)
+
 
 
 Running the Pipeline for all Models and visualizing the results, we have
