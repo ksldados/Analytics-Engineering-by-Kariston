@@ -1,5 +1,7 @@
-# Projetos-de-Machine-Learning-Engineering-by-Kariston
-Me chamo Kariston e sou Analytics Engineering em uma Fintech focada em serviços financeiros e banking para pequenas e médias empresas. Sou apaixonado por dados e sou um aficcionado pela Engenharia de Dados e de Machine Learning, pretendendendo exercer esta carreira no futuro. Sou Bacharel e Mestre em Matemática Aplicada e Computacional pela Universidade Estadual de Londrina (UEL) e atualmente estudande de MBA em Machine Learning in Production na UFSCar.
+# Machine-Learning-Engineering-Projects-by-Kariston-Luiz
 
-Neste repositório, podemos encontrar alguns dos projetos desenvolvidos utilizando técnicas de Engenharia de Dados focado em Pipeline de Machine Learning. Lembrando que este repositório está em constante atualização.
+My name is Kariston and I'm currently Analytics Engineering at a Fintech focused on financial and banking services for small and medium enterprises. I am passionate about data and I am a Data Engineering and Machine Learning enthusiast, intending to pursue this career in the future. I have Bachelor and Master's degree in Applied and Computational Mathematics from the State University of Londrina (UEL) and currently an MBA student in Machine Learning in Production at UFSCar. 
 
+In summary, I'm a data professional who always seeks to improve my knowledge, contribute to research, and develop the best sustainable, data-driven, solutions and ecosystem by using Data Foundations. 
+
+In this repository, we can find some of the projects developed using Data Engineering techniques focused on Machine Learning Pipeline. Remembering that this repository is constantly updated.
