@@ -1,3 +1,5 @@
+# Text Classification Using Supervisioned Learning Models
+
 In this project, we are going to use the free Reddit API to extract some posts by Web Scraping about Data Science, Machine Learning, Physics, Astronomy and Conspiracy. 
 
 Once these data have been extracted, we will create a pipeline for pre-processing these data and we will use dimensionality reduction techniques to later train 3 classification models, KNN, RandomForest and Logistic Regression. 
@@ -33,7 +35,7 @@ Done! Your API has been created and a similar window should appear like this:
 
 In general, to connect to the Reddit API, we'll use a specific Python Library called "praw". Read more here https://praw.readthedocs.io/en/stable/code_overview/reddit_instance.html.
 
-# Starting coding - Text Classification Using Supervisioned Learning Models
+# Starting coding
 
 In this project, we gonna use some specifics packages that you can get them by installing the Python Interpreter using 'Anaconda3' installer.
 
@@ -49,4 +51,39 @@ After this, we must create a load data function by connecting to the Reddit API 
 Firstly we extract data from Reddit accessing via API (all red boxes in the figure bellow should be complete using your API and Reddit account informations) and then, we count the number of characters using regular expressions. Define the condition to filter the posts (we will only return posts with 100 or more characters). Then, lists for results.
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/bd2f71fe-b7b8-4232-9767-2c6f3a6efb38)
+
+Creating a Loop to enumerate the data:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/cc50030b-03f4-420d-ade1-f79920050bda)
+
+And now, we create control variables to separate the dataset into Train and Test using Random State.
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/c8b92df2-7508-4222-a883-a7676c2d9562)
+
+# Data Pre-Processing and Attribute Extraction
+
+The following steps will be done now.
+
+1 - Remove symbols, numbers and url-like strings with custom preprocessor
+
+2 - Vectorizes text using the term inverse frequency of document frequency
+
+3 - Reduces to major values ​​using singular value decomposition
+
+4 - Partitions data and labels into training/validation sets
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/38456476-d6d1-4775-88fc-526b5aa66437)
+
+Creating the models we can obtain:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/a249fede-fed8-4164-b90f-4d848e52ee95)
+
+
+Running the Pipeline for all Models:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/1e6e3a33-e467-4834-b0c6-461a8ce9c4fb)
+
+
+
+
 
