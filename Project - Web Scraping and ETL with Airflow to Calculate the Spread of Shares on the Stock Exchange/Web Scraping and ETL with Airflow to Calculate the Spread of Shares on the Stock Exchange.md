@@ -36,7 +36,11 @@ Finally, start the Airflow Scheduler:
 ```python
 airflow scheduler
 ```
-Done! Your Apache Airflow Environment has been created.
+Done! Your Apache Airflow environment has been created. A folder named "Airflow" also has been created on your user space. Firstly, you need to confiure de "airflow.cfg" inside this folder and put your code's folder in the path, something like this:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/e25dcce9-030e-48f4-a989-b78563458546)
+
+All your DAG codes must be in this path to work correctly.
 
 ## Web Scraping and ETL with Airflow to Calculate the Spread of Shares on the Stock Exchange
 
@@ -46,9 +50,14 @@ We gonna program a Daily Airflow Scheduler Job (DAG) written in Python Language 
 
 In this moment, we must create our own scheduler code to perform Extraction of our Stock Exchange Data, put into this code some transformations to calculate the Spread of the Shares and finally, we need to choose where the data will be loaded.
 
-The code containing this job can be seen in the attached project folder named 'daily_spread_etl_job.py'. 
+The code containing this job can be seen in the attached project folder named 'daily_spread_etl_job.py'. To run this DAG on the Airflow screen, you need to navigate through your terminal to the folder where the DAG code is in (the folder that you set up before on airflow.cfg) and in your terminal screen type something like this (but using your own path): 
 
 
-On the DAGs monitoring screen in Airflow, we should have something similar to this image:
+```terminal
+~/home/dmpm/DAG$ python daily_spread_etl_job.py 
+```
+No errors should appear and then, your DAG must be shown on Airflow environment when you access using your browser using localhost.
+
+Finally, running the DAG, on monitoring screen in Airflow, we should have something similar to this image:
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/ef9cc91c-9083-4059-9383-dd399312b985)
