@@ -103,6 +103,10 @@ Por último, definimos o workflow das tasks:
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/d003cedb-f978-4452-9c70-3297094ac541)
 
+E temos o seguinte gráfico rodando com sucesso no Airflow:
+
+
+
 Para analisar os resultados, recomenda-se usar o software 'DB Browser for SQLite'. Para isto, basta instalar a aplicação e executar em seguida e deverá ter algo semelhante a isto:
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/90d32c6e-60ad-439c-b9b9-d5d5e77b263c)
