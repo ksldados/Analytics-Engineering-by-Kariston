@@ -123,6 +123,39 @@ SELECT * FROM users
 
 Para responder as métricas conforme as perguntas de negócio, deve-se escrever os códigos no DB Browser como segue abaixo:
 
+1 - Totalde pessoas com o mesmo nome por país
+
+```sql
+SELECT country,
+COUNT(*) - COUNT(DISTINCT firstname) +1 as qtde_pessoas_mesmo_nome
+FROM users
+GROUP BY 1;
+```
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/cbf91ab9-f0bf-4b0e-9597-b4f1ab516185)
+
+
+2 - Distribuição de pessoas por gênero por país
+
+```sql
+SELECT gender,country,
+COUNT(*) as qtde_pessoas_por_genero
+FROM users
+GROUP BY 1,2;
+```
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/e5225d36-e94f-4f8b-b2fc-2685c35bd8bc)
 
 
 
+3 - Quantas pessoas da distribuição do ítem 2 possuí + de 50
+
+```sql
+SELECT gender,country,
+COUNT(*) as qtde_pessoas_por_genero
+FROM users
+WHERE age >= 50
+GROUP BY 1,2;
+```
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/19ee70dc-82c7-4843-9758-21626a3ed638)
