@@ -51,7 +51,15 @@ Agora, vamos configurar a conexão com o banco de dados SQLite que criamos anter
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/9494fa0d-e5cc-4906-8c66-0d9a31e08860)
 
-Pronto. Agora já temos nossa API e Banco de Dados configurados. Vamos começar a escrever nossa DAG contendo os jobs de ETL dos dados da API.
+Pronto. Agora já temos nossa API e Banco de Dados configurados. 
+
+# Construção do Pipeline 
+
+O pipeline consistirá as seguintes etapas, basicamente:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/2cbb9eeb-8d6a-4c8b-9706-f0213ab4c682)
+
+Escreveremos um job que fará todo esse trabalho de forma automatizada. Vamos começar a escrever nossa DAG contendo os jobs de ETL dos dados da API.
 
 Desta forma, precisaremos dos seguintes imports:
 
@@ -70,7 +78,50 @@ No código SQL se a tabela 'users' não existe ainda; Ela criará a 'users' com 
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/92996bf2-f556-4b75-8c4c-5d5c03e80f65)
 
+Nesta etapa verificará se a API está funcionando com o 'endpoint' customizado [https://randomuser.me/api/](https://randomuser.me/api), vamos usar api/ no parâmetro endpoint.
 
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/36f546d6-49e7-4bcb-ba47-65321c63c481)
+
+Usando o SimpleHttpOperator nós enviamos um requisito GET HTTP  para a conexão user_api que criamos antes. Com o response_filter nós convertemos o JSON string em um campo 'response.text' que é um python object.
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/f65c7f36-1ded-4b25-a7c6-0ed426a022a4)
+
+Com o uso do PythonOperator, nós vamos manter somente os campos desejados do python object que nós obtivemos via API anteriormente. E vamos salvar os dados num arquivo .csv
+
+Definimos o objeto 'Task Instance (ti)' como um parâmetro da função python e pegamos os resultados das 'task_ids' com users = ti.xcom_pull(task_ids=['extracting_user']).
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/b8869fab-c79e-4a3d-9dd0-b9989078ea44)
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/63ec7484-ba83-4c16-9319-058b9f68362d)
+
+
+Podemos agora usar o BashOperator para armazenar a tabela criada e carregada com os dados dentro do nosso Banco de Dados SQLite 'userdatabase.db' criado anteriormente.
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/63dc179b-360d-474d-ae83-6ecb1e0a20f3)
+
+Por último, definimos o workflow das tasks:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/d003cedb-f978-4452-9c70-3297094ac541)
+
+Para analisar os resultados, recomenda-se usar o software 'DB Browser for SQLite'. Para isto, basta instalar a aplicação e executar em seguida e deverá ter algo semelhante a isto:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/90d32c6e-60ad-439c-b9b9-d5d5e77b263c)
+
+Clique em "Open Database" e navegue até o arquivo criado anteriormente 'userdatabase.db'. Então, deverá ter algo como:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/ff928965-b76f-45b2-9e70-58c52f2dec0d)
+
+Para consultar os dados, clique em "Execute SQL" e então digite o código:
+
+```sql
+SELECT * FROM users
+```
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/1841f329-9aa4-4832-9076-55554772511c)
+
+## REPOSTA USANDO SQL PARA ATINGIR AS MÉTRICAS
+
+Para responder as métricas conforme as perguntas de negócio, deve-se escrever os códigos no DB Browser como segue abaixo:
 
 
 
