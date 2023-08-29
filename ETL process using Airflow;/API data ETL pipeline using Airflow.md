@@ -124,6 +124,8 @@ SELECT * FROM users
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/1841f329-9aa4-4832-9076-55554772511c)
 
+Como nosso Job está criado, todos os dias ele rodará e adicionará automaticamente um novo usuário ao nosso banco de dados.
+
 ## REPOSTA USANDO SQL PARA ATINGIR AS MÉTRICAS
 
 Para responder as métricas conforme as perguntas de negócio, deve-se escrever os códigos no DB Browser como segue abaixo:
