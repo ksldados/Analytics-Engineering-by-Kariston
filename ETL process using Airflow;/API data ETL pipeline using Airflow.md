@@ -123,7 +123,7 @@ SELECT * FROM users
 
 Para responder as métricas conforme as perguntas de negócio, deve-se escrever os códigos no DB Browser como segue abaixo:
 
-1 - Totalde pessoas com o mesmo nome por país
+1 - Total de pessoas com o mesmo nome por país
 
 ```sql
 SELECT country,
