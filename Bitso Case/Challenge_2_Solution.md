@@ -1,5 +1,6 @@
 # SOLUTION - CHALLENGE 2 
 
+## THE PIPELINE
 In this solution, we will use Airflow to orchestrate the data pipeline to create tables and load them to a SQLite database. 
 First, we gonna use the following data model shown below:
 
@@ -63,7 +64,7 @@ with DAG('tables_etl', schedule_interval='@daily',
 
         
 
-    ct1 = SqliteOperator(
+     ct1 = SqliteOperator(
 
         task_id='creating_table_deposits',
 
@@ -73,7 +74,7 @@ with DAG('tables_etl', schedule_interval='@daily',
 
             CREATE TABLE IF NOT EXISTS deposits (
 
-		        id INTEGER NOT NULL,
+		        id INTEGER NOT NULL UNIQUE,
 
 		        event_timestamp TEXT NOT NULL,
 
@@ -103,7 +104,7 @@ with DAG('tables_etl', schedule_interval='@daily',
 
             CREATE TABLE IF NOT EXISTS front_events (
 
-		        id INTEGER NOT NULL,
+		        id INTEGER NOT NULL UNIQUE,
 
 		        event_timestamp TEXT NOT NULL,
 
@@ -129,7 +130,7 @@ with DAG('tables_etl', schedule_interval='@daily',
 
             CREATE TABLE IF NOT EXISTS withdrawals (
 
-		        id INTEGER NOT NULL,
+		        id INTEGER NOT NULL UNIQUE,
 
 		        event_timestamp TEXT NOT NULL,
 
@@ -145,9 +146,8 @@ with DAG('tables_etl', schedule_interval='@daily',
 
 		    );
 
-	''' 
-
-    )
+	'''
+)
 ```
     
 Finally, let's use 'BashOperator' to import our CSV files to the tables created earlier into our database. The code is written below.
@@ -186,6 +186,115 @@ Hence, the workflow to run our DAG is:
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/3f0754a6-3fed-4741-92e9-a166da755056)
 
+
 Done! Our DAG is ready to be orchestrated! Now we have the following graph running successfully in Airflow:
 
 ![airflow_2](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/726498b6-0a16-4128-bd08-e7bffcaa7b9e)
+
+## THE SQL QUERYS
+
+To answer some those business questions in SQL using our created database. To analyze the results, it is recommended to use the 'DB Browser for SQLite' software. To do this, just install the application and run it and you should have something similar to this:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/90d32c6e-60ad-439c-b9b9-d5d5e77b263c)
+
+Click on "Open Database" and navigate to the previously created file 'bitso_database.db'. So, it should have something like:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/035a6ffa-7b36-448a-aa47-8df521f7052e)
+
+### 1 - Total amount deposited of a given currency on a given day
+
+To query the data, click on "Execute SQL" and then enter the code:
+
+**SQLite format code**
+```sql
+select substr(event_timestamp,1,10)  as given_day,
+currency, SUM(ROUND(amount,2)) as total_amount_deposited
+from deposits
+group by 1,2
+order by 1 DESC;
+```
+**MySQL format code**
+```sql
+select DATE_TRUNC(CAST(event_timestamp AS TIMESTAMP),day)  as given_day,
+currency, SUM(ROUND(amount,2)) as total_amount_deposited
+from deposits
+group by 1,2
+order by 1 DESC;
+```
+
+**Output sample**
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/72cd4daf-3e12-46ee-94d9-e8f1b4ca3446)
+
+### 2 - Number of unique currencies deposited on a given day
+
+To query the data, click on "Execute SQL" and then enter the code:
+
+**SQLite format code**
+```sql
+select substr(event_timestamp,1,10)  as given_day,
+COUNT(DISTINCT currency) as unique_currency_deposited
+from deposits
+group by 1
+order by 1 DESC;
+```
+**MySQL format code**
+```sql
+select DATE_TRUNC(CAST(event_timestamp AS TIMESTAMP),day)  as given_day,
+COUNT(DISTINCT currency) as unique_currency_deposited
+from deposits
+group by 1
+order by 1 DESC;
+```
+
+**Output sample**
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/20fcae1a-a175-40ca-ba06-5cde483a7253)
+
+### 3 - Number of unique currencies withdrew on a given day
+
+To query the data, click on "Execute SQL" and then enter the code:
+
+**SQLite format code**
+```sql
+select substr(event_timestamp,1,10)  as given_day,
+COUNT(DISTINCT currency) as unique_currency_withdraw
+from withdrawals
+group by 1
+order by 1 DESC;
+```
+**MySQL format code**
+```sql
+select DATE_TRUNC(CAST(event_timestamp AS TIMESTAMP),day)  as given_day,
+COUNT(DISTINCT currency) as unique_currency_withdraw
+from withdrawals
+group by 1
+order by 1 DESC;
+```
+
+**Output sample**
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/8aa5f7f2-2c01-4190-a683-baacd997c7d3)
+
+### 4 - When was the last time a user a user made a login
+
+To query the data, click on "Execute SQL" and then enter the code:
+
+**SQLite format code**
+```sql
+select distinct user_id, MAX(DATETIME(event_timestamp)) as max_day 
+from front_events
+where event_name = 'login'
+group by 1;
+```
+**MySQL format code**
+```sql
+select distinct user_id, MAX(DATE(CAST(event_timestamp as TIMESTAMP))) as max_day 
+from front_events
+where event_name = 'login'
+group by 1;
+```
+
+**Output sample**
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/3eda72c3-b07e-4fee-991a-32323ced64f2)
