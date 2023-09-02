@@ -1,6 +1,6 @@
-# SOLUTIONS - CHALLENGE FOR SR DATA ENGINEER - BITSO
+# BITSO ETL AND DATA MODELING PROJECTS
 
-Solutions by Kariston Stevan Luiz. 
+Projected by Kariston Stevan Luiz. 
 
 My profile on Linkedin: https://www.linkedin.com/in/kariston-stevan-luiz-852338157/
 
