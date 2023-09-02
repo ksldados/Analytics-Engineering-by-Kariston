@@ -194,3 +194,12 @@ airflow scheduler
 
 With our DAG on the Scheduler Screen, we can trigger it and see the results. The image below shows what exactly happens:
 
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/08d64ab1-024c-48f0-a095-cd5a1e95ac67)
+
+In the Data Lake directory, we can see the data partitioned by datetime, every 10 minutes creates a new file .csv. This type of partition, in addition to being the most common and simplest, can facilitate the ingestion of data from a Data Warehouse or Data Mart into AWS S3 using AWS Glue and AWS Athena to catalog the data or unite all the tables by creating a single table, for example. Both the Data Engineer and the Data Scientist can work quickly in a variety of ways with this partitioned data.
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/5949bab0-6d05-4812-abd4-fb8e81f9ece8)
+
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/6c286b64-820f-4b1b-995e-bfc4c4cd451b)
