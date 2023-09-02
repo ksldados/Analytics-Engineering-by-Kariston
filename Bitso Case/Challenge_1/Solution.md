@@ -203,3 +203,6 @@ In the Data Lake directory, we can see the data partitioned by datetime, every 1
 
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/6c286b64-820f-4b1b-995e-bfc4c4cd451b)
+
+
+### Some examples of the output partitioned data of this project is attached in the Challenge_1 folder.
