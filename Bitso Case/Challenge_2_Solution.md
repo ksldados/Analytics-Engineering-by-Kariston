@@ -3,7 +3,8 @@
 In this solution, we will use Airflow to orchestrate the data pipeline to create tables and load them to a SQLite database. 
 First, we gonna use the following data model shown below:
 
-![airflow_2](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/726498b6-0a16-4128-bd08-e7bffcaa7b9e)
+![data_model](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/193505e8-dbf5-4860-acdb-45749e80d1d1)
+
 
 In this case, we will use only 3 CSV files out of the 4 provided in this challenge, as we understand that it will facilitate obtaining the results. 
 
@@ -149,4 +150,42 @@ with DAG('tables_etl', schedule_interval='@daily',
     )
 ```
     
+Finally, let's use 'BashOperator' to import our CSV files to the tables created earlier into our database. The code is written below.
 
+```python
+storing_data1 = BashOperator(
+
+        task_id='storing_data_deposits',
+
+        bash_command='echo -e ".separator ","\n.import /home/kariston/datalake_bitso/deposit_sample_data.csv deposits" | sqlite3 /home/kariston/bitso_database.db'
+
+    )
+
+    
+
+    storing_data2 = BashOperator(
+
+        task_id='storing_data_front_events',
+
+        bash_command='echo -e ".separator ","\n.import /home/kariston/datalake_bitso/event_sample_data.csv front_events" | sqlite3 /home/kariston/bitso_database.db'
+
+    )
+
+    
+
+    storing_data3 = BashOperator(
+
+        task_id='storing_data_withdrawals',
+
+        bash_command='echo -e ".separator ","\n.import /home/kariston/datalake_bitso/withdrawals_sample_data.csv withdrawals" | sqlite3 /home/kariston/bitso_database.db'
+
+    )
+```
+
+Hence, the workflow to run our DAG is:
+
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/3f0754a6-3fed-4741-92e9-a166da755056)
+
+Done! Our DAG is ready to be orchestrated! Now we have the following graph running successfully in Airflow:
+
+![airflow_2](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/726498b6-0a16-4128-bd08-e7bffcaa7b9e)
