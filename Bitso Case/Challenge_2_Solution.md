@@ -46,5 +46,107 @@ Now, we can create a python file and import some packages and define arguments t
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/dbcf6540-43f2-45d2-86c8-dfc136e16bdf)
 
+For this example, let's set the DAG schedule run interval to 'daily'. Now, we gonna use the 'SqliteOperator' to create, using DDL, the tables in our SQLite database.
+The tables will be created simultaneously as follows:
 
+```python
+with DAG('tables_etl', schedule_interval='@daily',
+
+        default_args=default_args,
+
+        catchup=False) as dag:
+
+        
+
+        # Define tasks/operators
+
+        
+
+    ct1 = SqliteOperator(
+
+        task_id='creating_table_deposits',
+
+        sqlite_conn_id='db_sqlite',
+
+        sql='''
+
+            CREATE TABLE IF NOT EXISTS deposits (
+
+		        id INTEGER NOT NULL,
+
+		        event_timestamp TEXT NOT NULL,
+
+		        user_id TEXT NOT NULL,
+
+		        amount REAL NOT NULL,
+
+		        currency TEXT NOT NULL,
+
+		        tx_status TEXT NOT NULL
+
+		    );
+
+	''' 
+
+    )
+
+    
+
+    ct2 = SqliteOperator(
+
+        task_id='creating_table_front_events',
+
+        sqlite_conn_id='db_sqlite',
+
+        sql='''
+
+            CREATE TABLE IF NOT EXISTS front_events (
+
+		        id INTEGER NOT NULL,
+
+		        event_timestamp TEXT NOT NULL,
+
+		        user_id TEXT NOT NULL PRIMARY KEY,
+
+		        event_name TEXT NOT NULL
+
+		    );
+
+	''' 
+
+    )
+
+    
+
+    ct3 = SqliteOperator(
+
+        task_id='creating_table_withdrawals',
+
+        sqlite_conn_id='db_sqlite',
+
+        sql='''
+
+            CREATE TABLE IF NOT EXISTS withdrawals (
+
+		        id INTEGER NOT NULL,
+
+		        event_timestamp TEXT NOT NULL,
+
+		        user_id TEXT NOT NULL,
+
+		        amount REAL NOT NULL,
+
+		        interface TEXT NOT NULL,
+
+		        currency TEXT NOT NULL,
+
+		        tx_status TEXT NOT NULL
+
+		    );
+
+	''' 
+
+    )
+```
+    
 
