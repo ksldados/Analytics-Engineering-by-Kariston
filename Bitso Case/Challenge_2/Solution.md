@@ -299,3 +299,4 @@ group by 1;
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/3eda72c3-b07e-4fee-991a-32323ced64f2)
 
+### The path of the Bitso Data base generated in this project you can find in this link : https://drive.google.com/drive/folders/1cw1K10YeQ8sIdqxA4lCTrqaT5GgarXDT?usp=sharing
