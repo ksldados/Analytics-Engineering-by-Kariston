@@ -1,6 +1,8 @@
 # SOLUTIONS - CHALLENGE FOR SR DATA ENGINEER - BITSO
 
-Solutions by Kariston Stevan Luiz.
+Solutions by Kariston Stevan Luiz. 
+
+My profile on Linkedin: [https://www.linkedin.com/feed/](https://www.linkedin.com/in/kariston-stevan-luiz-852338157/)https://www.linkedin.com/in/kariston-stevan-luiz-852338157/
 
 
 
