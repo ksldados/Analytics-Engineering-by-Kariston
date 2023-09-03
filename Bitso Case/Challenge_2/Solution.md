@@ -199,7 +199,8 @@ To answer some those business questions in SQL using our created database. To an
 
 Click on "Open Database" and navigate to the previously created file 'bitso_database.db'. So, it should have something like:
 
-![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/035a6ffa-7b36-448a-aa47-8df521f7052e)
+![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/823240f1-ffd5-4621-ac1c-07ba0b50cb91)
+
 
 ### 1 - Total amount deposited of a given currency on a given day
 
