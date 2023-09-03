@@ -8,7 +8,7 @@ Once the Bitso API has been created, to capture the data and calculate the order
 
 ## THE PIPELINE
 
-To write our Airflow DAG, we should import some packages and define the arguments to go through. All the arguments written down below can be flexible, in this case, we have defined that que job will run every, every 10 minutes.
+To write our Airflow DAG, we should import some packages and define the arguments to go through. All the arguments written down below can be flexible, in this case, we have defined that the job will run every, every 10 minutes.
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/46bd9871-c818-4a83-b9b7-45f25f3c3ef3)
 
