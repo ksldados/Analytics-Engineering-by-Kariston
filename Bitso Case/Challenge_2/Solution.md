@@ -11,7 +11,7 @@ In this case, we will use only 3 CSV files out of the 4 provided in this challen
 
 Hence, the CSV files used in this pipeline will be attached in this GIT project.
 
-Let's start code our DAG file to orchestrate the role pipeline. First of all, we need to activate our Airflow webs server and  Scheduler by writing in the terminal the following codes:
+Let's start code our DAG file to orchestrate the role pipeline. First of all, we need to activate our Airflow web server and  Scheduler by writing in the terminal the following codes:
 
 
 ```python
