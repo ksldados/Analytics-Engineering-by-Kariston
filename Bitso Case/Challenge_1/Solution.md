@@ -4,7 +4,7 @@ First of all, we need to create a API connection to Bitso environment. To comple
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/7a369379-b35d-4266-b197-e4141692a2ec)
 
-Once the Bitso API has been created, to capture the data and calculate the order book spread, we must connect to the API using the generated key and secret. In this project, we will use Airflow to orchestrate the entire flow. Then, we will create a DAG that will automatically, given the necessary parameters, connect to the Bitso API, extract and transform the data and finally, will laod the data **already partitioned by datetime**, in .csv format in a folder that simulates (we can also compare) to an AWS S3 bucket. Remembering that the data will be loaded every 10 minutes divided by the load time, thus making it easier for analysts to use the data in the Data Lake and be able to monitor the oscillations of the spreads in a continuous and organized way. So, let's code!
+Once the Bitso API has been created, to capture the data and calculate the order book spread, we must connect to the API using the generated key and secret. In this project, we will use Airflow to orchestrate the entire flow. Then, we will create a DAG that will automatically, given the necessary parameters, connect to the Bitso API, extract and transform the data and finally, will laod the data **already partitioned by datetime**, in .csv format in a folder that simulates (we can also compare) to an AWS S3 bucket. Remembering that the data will be loaded every 10 minutes divided by the load time, thus making it easier for analysts to use the data in the Data Lake and be able to monitor the oscillations of the spreads in a continuous and organized way helping to improve data processing and load performance. So, let's code!
 
 ## THE PIPELINE
 
@@ -198,7 +198,7 @@ With our DAG on the Scheduler Screen, we can trigger it and see the results. The
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/08d64ab1-024c-48f0-a095-cd5a1e95ac67)
 
-In the Data Lake directory, we can see the data partitioned by datetime, every 10 minutes creates a new file .csv. This type of partition, in addition to being the most common and simplest, can facilitate the ingestion of data from a Data Warehouse or Data Mart into AWS S3 using AWS Glue and AWS Athena to catalog the data or unite all the tables by creating a single table, for example. Both the Data Engineer and the Data Scientist can work quickly in a variety of ways with this partitioned data.
+In the Data Lake directory, we can see the data partitioned by datetime, every 10 minutes creates a new file .csv. This type of partition, in addition to being the most common and simplest, can facilitate the ingestion of data from a Data Warehouse or Data Mart into AWS S3 using AWS Glue and AWS Athena to catalog the data or unite all the tables by creating a single table helping to improve data processing and load performance, for example. Both the Data Engineer and the Data Scientist can work quickly in a variety of ways with this partitioned data.
 
 ![image](https://github.com/ksldados/Projetos-de-Machine-Learning-Engineering-by-Kariston/assets/114116067/5949bab0-6d05-4812-abd4-fb8e81f9ece8)
 
