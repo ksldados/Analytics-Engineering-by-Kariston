@@ -170,7 +170,7 @@ with DAG('bitso_etl', default_args = default_args, schedule=timedelta(minutes=10
 
 
 ```
-**NOTE:** If we change the parameter **catchup=False** to *True* statement in the DAG building, the job will capturate the data already partitioned and spreads already calculated every minute. But in this case, we choose to capturate the data every 10 minutes, but as said before, it's changeable and it depends on the business goals.
+**NOTE:** If we change the parameter **catchup=False** to *True* statement in the DAG building, the job will capturate the data already partitioned and the spread already calculated every minute. But in this case, we choose to capturate the data every 10 minutes, but as said before, it's changeable and it depends on the business goals.
 
 **NOTE:** In the "Task 0", we've created a folder utilizing the function 'str(date.today())'. It will create a folder which the name of it is the today's date. Here, we emphasize that the name of our Data Lake can be any name that you want, it's not a rule! Just change this part of the code. 
 
