@@ -1,5 +1,0 @@
-##Introduction
-
-We may encounter many issues when working on a machine learning project. It is challenging to train and monitor multiple models. It’s possible that each model has unique characteristics or parameters. Assessing and exploiting these models without suitable performance monitoring and model version control tools becomes complicated. Sharing these models with the rest of the team for testing is also challenging. If we have a tool that we can use to keep track of our models, it becomes more convenient. A platform that makes it simple for teams to collaborate to develop effective automated machine learning pipelines.
-
-In this article, we will learn about collaborative machine learning and how to train, track and share our machine learning models using a platform called “Layer.”
