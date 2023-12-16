@@ -49,7 +49,7 @@ import layer
 from layer import Dataset
 ```
 
-## Inicialize seu primeiro projeto no Layer
+## Inicializando primeiro projeto no Layer
 
 Vamos começar a trabalhar no projeto no Layer. Todo o seu projeto pode ser encontrado em https://app.layer.ai.
 
@@ -135,3 +135,35 @@ layer.run([train])
 Abra o projeto Layer lá; você verá os modelos carregados e os conjuntos de dados. Todos os parâmetros e gráficos que você registrou estarão lá, junto com a versão do modelo. Cada vez que você executa a função de treinamento, uma nova versão do modelo é carregada junto com todos os parâmetros registrados. Isso facilita a comparação do desempenho de todos os modelos e o uso da versão anterior.
 
 Podemos comparar os parâmetros e resultados registrados, como tamanho dos dados de teste, hiperparâmetros, precisão e pontuação ROC-AUC.
+
+![image](https://github.com/ksldados/Analytics-Engineering-by-Kariston/assets/114116067/ba4de919-9a4a-4f35-a922-3c5cc92312ad)
+
+![image](https://github.com/ksldados/Analytics-Engineering-by-Kariston/assets/114116067/839fbe9a-d1d7-4872-9482-ffa36f980b7d)
+
+A imagem abaixo mostra as previsões de amostra.
+
+![image](https://github.com/ksldados/Analytics-Engineering-by-Kariston/assets/114116067/51c8b218-3c5e-4ad0-a8f9-4a83f47100f3)
+
+Os gráficos registrados de diferentes versões do modelo também podem ser visualizados e comparados.
+
+![image](https://github.com/ksldados/Analytics-Engineering-by-Kariston/assets/114116067/b9a46e72-467e-425e-ba9c-380dd3f0039e)
+
+## Buscando um modelo de ML ideal no Layer
+Depois de treinarmos e carregarmos o modelo para a plataforma Layer, podemos carregar a versão desejada do modelo para fazer previsões. Com a ajuda deste código, podemos obter a versão do modelo necessária no Layer.
+
+```
+import layer
+model = layer.get_model("san22/new_project/models/classification_model:2.1").get_train()
+```
+
+Este objeto model pode ser um modelo regular para realizar previsões com base nos dados de entrada.
+
+# Conclusão
+
+Neste projeto, aprendemos sobre os vários problemas que as equipes podem encontrar no setor de aprendizado de máquina ao colaborar e gerenciar versões de modelos. Posteriormente, vimos algumas das melhores práticas para trabalhar em equipe em projetos de ML. No projeto, desenhamos um projeto Layer que considera todos os desafios que as equipes enfrentam em um projeto de ML. Conclusões importantes deste artigo:
+
+- Aprendemos como usar Layer – uma plataforma colaborativa de ML.
+- Usamos controle automatizado de versão do modelo com a ajuda desta plataforma.
+- Ao registrar os parâmetros do modelo e os resultados, poderíamos comparar os resultados de diferentes versões do modelo.
+
+
